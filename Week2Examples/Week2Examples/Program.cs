@@ -13,11 +13,11 @@ namespace Week2Examples
 
         public string firstName;
 
-      
-        // defaults to private if you don't declare
-        int thirteen = 0b00001101;
 
-        int seventeen = 0x11;
+        // defaults to private if you don't declare
+        static int thirteen = 0b00001101;
+
+        static int seventeen = 0x11;
 
         static int someBigValue = 123_456_789;
 
@@ -41,12 +41,42 @@ namespace Week2Examples
 
             Console.Write("Next line please!");
 
-            // read key will wait for any key press
-            Console.ReadKey();
+            // calls the Mathmatics constructor method
+            var myMath = new Mathmatics();
 
-            //Console.ReadLine(); will wait for the enter key
+            Console.WriteLine(myMath.add(thirteen, seventeen));
+            Console.WriteLine(myMath.add(thirteen, seventeen));
+            Console.WriteLine(myMath.add(thirteen, seventeen));
+            Console.WriteLine(myMath.getRunningTotal());
+
+            // read key will wait for any key press
+            //Console.ReadKey();
+
+            // use write to have prompt on the same line
+            Console.Write("Please enter your name: ");
+            _name = Console.ReadLine(); // will wait for the enter key
+
+            Console.WriteLine("Hi " + _name);
+
+            myMath.AskForSalaryInfoAndDisplayWeeklyPay();
+            printTriangle(10);
+
+            Console.ReadKey();
         }
 
-        private String _name;
+        public static void printTriangle(int size)
+        {
+            for ( int row = 0; row < size; row++ )
+            {
+                for ( int col = 0; col < row; col++ )
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        // must be static if I want to assign it in the static main method
+        private static String _name;
     }
 }
