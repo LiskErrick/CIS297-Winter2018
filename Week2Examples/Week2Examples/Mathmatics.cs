@@ -35,20 +35,20 @@ namespace Week2Examples
             var result = ++first + second++;
             _runningTotal += result;
 
-            bool matches = first == second;
+            //bool matches = first == second;
 
-            // is equivelent to the if else block below
-            result = matches ? first * 2 : first + second;
+            //// is equivelent to the if else block below
+            //result = matches ? first * 2 : first + second;
 
-            // equivelent to the funny looking thing above
-            if (matches)
-            {
-                result = first * 2;
-            }
-            else
-            {
-                result = first + second;
-            }
+            //// equivelent to the funny looking thing above
+            //if (matches)
+            //{
+            //    result = first * 2;
+            //}
+            //else
+            //{
+            //    result = first + second;
+            //}
 
             return result;
         }
@@ -56,6 +56,11 @@ namespace Week2Examples
         public double add(double first, double second = 0)
         {
             return 0.0;
+        }
+
+        public double quotient( int divisor, int dividend )
+        {
+            return divisor / dividend;
         }
 
         public int difference(int first, int second)
