@@ -11,7 +11,7 @@ namespace Week2Examples
         
         public static int myFavoriteNumber, yourFavoriteNumber;
 
-        public string firstName;
+        public static string firstName = null;
 
 
         // defaults to private if you don't declare
@@ -24,6 +24,9 @@ namespace Week2Examples
         static void Main(string[] args)
         {
             var areYouHungry = true;
+
+            // don't try to do things with null objections
+            Console.WriteLine(firstName.Length);
 
             Console.WriteLine("Hello World!");
             Console.WriteLine("Hi there Eric!");
