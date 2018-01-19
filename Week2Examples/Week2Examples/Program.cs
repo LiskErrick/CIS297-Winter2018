@@ -61,6 +61,15 @@ namespace Week2Examples
             //myMath.AskForSalaryInfoAndDisplayWeeklyPay();
             //printTriangle(10);
 
+            Mathmatics math = new Mathmatics();
+
+            // having a default value in a parameter makes it optional
+            math.add(1.0, 2.0);
+            math.add(1.0);
+
+            // named parameters vs positional parameters
+            math.add(second: 2.0, first: 1.0);
+
             ArrayExamples randomArray = new ArrayExamples();
             randomArray.printScores();
 

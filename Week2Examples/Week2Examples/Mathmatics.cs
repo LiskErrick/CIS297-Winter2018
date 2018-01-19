@@ -53,6 +53,11 @@ namespace Week2Examples
             return result;
         }
 
+        public double add(double first, double second = 0)
+        {
+            return 0.0;
+        }
+
         public int difference(int first, int second)
         {
             return first < second ? second - first : first - second;
