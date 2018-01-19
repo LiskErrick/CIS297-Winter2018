@@ -42,24 +42,27 @@ namespace Week2Examples
             Console.Write("Next line please!");
 
             // calls the Mathmatics constructor method
-            var myMath = new Mathmatics();
+            //var myMath = new Mathmatics();
 
-            Console.WriteLine(myMath.add(thirteen, seventeen));
-            Console.WriteLine(myMath.add(thirteen, seventeen));
-            Console.WriteLine(myMath.add(thirteen, seventeen));
-            Console.WriteLine(myMath.getRunningTotal());
+            //Console.WriteLine(myMath.add(thirteen, seventeen));
+            //Console.WriteLine(myMath.add(thirteen, seventeen));
+            //Console.WriteLine(myMath.add(thirteen, seventeen));
+            //Console.WriteLine(myMath.getRunningTotal());
 
             // read key will wait for any key press
             //Console.ReadKey();
 
             // use write to have prompt on the same line
-            Console.Write("Please enter your name: ");
-            _name = Console.ReadLine(); // will wait for the enter key
+            //Console.Write("Please enter your name: ");
+            //_name = Console.ReadLine(); // will wait for the enter key
 
-            Console.WriteLine("Hi " + _name);
+            //Console.WriteLine("Hi " + _name);
 
-            myMath.AskForSalaryInfoAndDisplayWeeklyPay();
-            printTriangle(10);
+            //myMath.AskForSalaryInfoAndDisplayWeeklyPay();
+            //printTriangle(10);
+
+            ArrayExamples randomArray = new ArrayExamples();
+            randomArray.printScores();
 
             Console.ReadKey();
         }
