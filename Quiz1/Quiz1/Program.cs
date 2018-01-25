@@ -35,6 +35,13 @@ namespace Quiz1
                 Console.WriteLine(arrayOfUnkonwnSize[index]);
             }
 
+            
+
+        }
+
+        public Coffee OrderCoffee( string size, bool cream = false, bool sugar = false)
+        {
+            
         }
     }
 }
