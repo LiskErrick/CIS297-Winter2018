@@ -12,7 +12,6 @@ namespace SpaghettiShop
 {
     public partial class Form1 : Form
     {
-        
         private double pastaCost;
         private double sauceCost;
         private double otherCost;
@@ -80,8 +79,5 @@ namespace SpaghettiShop
 
             totalLabel.Text = $"Total Cost: ${pastaCost+sauceCost+otherCost}";
         }
-
-
-       
     }
 }
