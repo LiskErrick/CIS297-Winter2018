@@ -15,6 +15,7 @@ namespace SpaghettiShop
         private double pastaCost;
         private double sauceCost;
         private double otherCost;
+        private CashRegister register;
 
         public Form1()
         {
@@ -22,6 +23,9 @@ namespace SpaghettiShop
             pastaCost = 0;
             sauceCost = 0;
             otherCost = 0;
+            register = new CashRegister();
+
+            spaghettiButton.Text = $"Spaghetti: ${register.GetPriceOf("Spaghetti")}";
         }
 
         private void updatePriceLabel(object sender, EventArgs e)

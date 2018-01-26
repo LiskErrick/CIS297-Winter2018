@@ -67,10 +67,10 @@
             this.spaghettiButton.AutoSize = true;
             this.spaghettiButton.Location = new System.Drawing.Point(49, 55);
             this.spaghettiButton.Name = "spaghettiButton";
-            this.spaghettiButton.Size = new System.Drawing.Size(200, 29);
+            this.spaghettiButton.Size = new System.Drawing.Size(140, 29);
             this.spaghettiButton.TabIndex = 1;
             this.spaghettiButton.TabStop = true;
-            this.spaghettiButton.Text = "Spaghetti: $3.00";
+            this.spaghettiButton.Text = "Spaghetti:";
             this.spaghettiButton.UseVisualStyleBackColor = true;
             this.spaghettiButton.CheckedChanged += new System.EventHandler(this.updatePriceLabel);
             // 
