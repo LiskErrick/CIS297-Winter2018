@@ -30,31 +30,46 @@ namespace MyFirstWIndowsForm
         {
             string answer = answerBox.Text;
 
-            int answerAsInt = Int32.Parse(answer);
 
-            if (answerAsInt == result)
+            // old way
+            // int answerAsInt = Int32.Parse(answer);
+
+            int answerAsInt;
+
+            // out answerAsInt will set the value of answerAsInt for use inside the block
+            if ( Int32.TryParse(answer, out answerAsInt) )
             {
-                rightOrWrongLabel.Text = "Correct!";
-                int firstNumber = random.Next(20);
-                int secondNumber = random.Next(20);
-                result = firstNumber + secondNumber;
-                questionLabel.Text = $"{firstNumber} + {secondNumber}"
-                    + " = ?";
+                if (answerAsInt == result)
+                {
+                    rightOrWrongLabel.Text = "Correct!";
+                    int firstNumber = random.Next(20);
+                    int secondNumber = random.Next(20);
+                    result = firstNumber + secondNumber;
+                    questionLabel.Text = $"{firstNumber} + {secondNumber}"
+                        + " = ?";
 
-                // could also do
-                //questionLabel.Text = firstNumber.ToString() + " + " + secondNumber.ToString()
-                //    + " = ?";
+                    // could also do
+                    //questionLabel.Text = firstNumber.ToString() + " + " + secondNumber.ToString()
+                    //    + " = ?";
 
-                // blank out the answer box
-                answerBox.Text = string.Empty;
+                    // blank out the answer box
+                    answerBox.Text = string.Empty;
 
-                // brings the cursor back to the answerBox so I can type
-                answerBox.Focus();
+                    // brings the cursor back to the answerBox so I can type
+                    answerBox.Focus();
+                }
+                else
+                {
+                    rightOrWrongLabel.Text = "Wrong! Try again!";
+                }
+
             }
             else
             {
-                rightOrWrongLabel.Text = "Wrong! Try again!";
+                rightOrWrongLabel.Text = "Please enter a valid number";
+                answerBox.Text = string.Empty;
             }
+            
         }
 
         private void answerBox_KeyPress(object sender, KeyPressEventArgs e)
