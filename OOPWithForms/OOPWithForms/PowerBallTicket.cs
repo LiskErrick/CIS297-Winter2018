@@ -13,6 +13,7 @@ namespace OOPWithForms
         private int[] whiteBalls;
         public int RedBall { get; private set; }
 
+        
         public PowerBallTicket(int[] numbers) : this(numbers[0], numbers[1], numbers[2],
                 numbers[3], numbers[4], numbers[5])
         {
@@ -52,6 +53,13 @@ namespace OOPWithForms
 
         public int getWinnings( PowerBallTicket winningTicket )
         {
+
+            // this would be better as static variables, 
+            //  but, anonymous is cool
+            var prizes = new { Jackpot = 1000000000,
+                FiveWhite = 1000000 };
+
+            
             int winnings = 0;
 
             bool redMatch = RedBall == winningTicket.RedBall;
@@ -71,11 +79,11 @@ namespace OOPWithForms
 
             if ( whiteMatches == 5 && redMatch )
             {
-                winnings = 1000000000;
+                winnings = prizes.Jackpot;
             }
             else if (whiteMatches == 5)
             {
-                winnings = 1000000;
+                winnings = prizes.FiveWhite;
             }
             else if (whiteMatches == 4 && redMatch)
             {
