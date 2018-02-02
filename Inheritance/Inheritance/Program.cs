@@ -15,9 +15,9 @@ namespace Inheritance
 
             IPolygon[] shapes = new IPolygon[] { triangle, square };
 
-            foreach( IPolygon myShape in shapes )
-            {
-                Console.WriteLine($"{nameof(myShape)} has an area of {myShape.GetArea()}");
+            for( int index = 0; index < shapes.Length; index++ )
+            { 
+                Console.WriteLine($" has an area of {shapes[index].GetArea()}");
             }
 
             Console.ReadLine();

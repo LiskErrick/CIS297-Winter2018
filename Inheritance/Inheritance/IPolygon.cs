@@ -11,6 +11,5 @@ namespace Inheritance
         double GetPerimeter();
         double GetArea();
         int NumberOfSides();
-        string Name();
     }
 }
