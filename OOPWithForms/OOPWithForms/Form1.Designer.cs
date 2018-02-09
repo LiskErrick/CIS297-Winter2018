@@ -35,6 +35,7 @@
             this.numbersTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.randomTicketButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +95,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
+            // randomTicketButton
+            // 
+            this.randomTicketButton.Location = new System.Drawing.Point(1347, 472);
+            this.randomTicketButton.Name = "randomTicketButton";
+            this.randomTicketButton.Size = new System.Drawing.Size(456, 231);
+            this.randomTicketButton.TabIndex = 6;
+            this.randomTicketButton.Text = "Buy Random Ticket";
+            this.randomTicketButton.UseVisualStyleBackColor = true;
+            this.randomTicketButton.Click += new System.EventHandler(this.randomTicketButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1897, 816);
+            this.Controls.Add(this.randomTicketButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.numbersTextBox);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.TextBox numbersTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button randomTicketButton;
     }
 }
 

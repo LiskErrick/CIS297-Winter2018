@@ -13,11 +13,13 @@ namespace OOPWithForms
     public partial class Form1 : Form
     {
 
+        ActuallyRandom random;
         private int tickets;
         public Form1()
         {
             InitializeComponent();
             tickets = 0;
+            random = new ActuallyRandom();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,6 +73,14 @@ namespace OOPWithForms
 
             }
 
+        }
+
+        private void randomTicketButton_Click(object sender, EventArgs e)
+        {
+            var myTicket = new PowerBallTicket(random);
+
+            myTicketLabel.Text = myTicket.ToString();
+            tickets++;
         }
     }
 }

@@ -13,35 +13,54 @@ namespace OOPWithForms
         private int[] whiteBalls;
         public int RedBall { get; private set; }
 
-        
+        public PowerBallTicket(IRandom random)
+        {
+            List<int> balls = new List<int>();
+
+            balls.Add(random.Next(1, 70));
+
+            while (balls.Count != 5)
+            {
+                var possibleBall = random.Next(1, 70);
+                if (!balls.Contains(possibleBall))
+                {
+                    balls.Add(possibleBall);
+                }
+            }
+
+            RedBall = random.Next(1, 27);
+            whiteBalls = balls.ToArray();
+        }
+       
+
         public PowerBallTicket(int[] numbers) : this(numbers[0], numbers[1], numbers[2],
                 numbers[3], numbers[4], numbers[5])
         {
-            if ( numbers.Length != 6)
+            if (numbers.Length != 6)
             {
                 throw new ArgumentException("Must provide 6 numbers");
-            }            
+            }
         }
 
         public PowerBallTicket(int first, int second, int third, int fourth, int fifth, int powerball)
         {
-            if ( powerball > 26 || powerball < 1 )
+            if (powerball > 26 || powerball < 1)
             {
                 throw new ArgumentException("Powerball must be between 1 and 26");
             }
 
             whiteBalls = new int[] { first, second, third, fourth, fifth };
 
-            for( int index = 0; index < whiteBalls.Length; index++ )
+            for (int index = 0; index < whiteBalls.Length; index++)
             {
-                if ( whiteBalls[index] < 1 || whiteBalls[index] > 69 )
+                if (whiteBalls[index] < 1 || whiteBalls[index] > 69)
                 {
                     throw new ArgumentException("White balls must be between 1 and 69");
                 }
-            
-                for ( int checkIndex = index +1; checkIndex < whiteBalls.Length; checkIndex++ )
+
+                for (int checkIndex = index + 1; checkIndex < whiteBalls.Length; checkIndex++)
                 {
-                    if ( whiteBalls[index] == whiteBalls[ checkIndex] )
+                    if (whiteBalls[index] == whiteBalls[checkIndex])
                     {
                         throw new ArgumentException("White balls may not repeat");
                     }
@@ -51,33 +70,36 @@ namespace OOPWithForms
             RedBall = powerball;
         }
 
-        public int getWinnings( PowerBallTicket winningTicket )
+        public int getWinnings(PowerBallTicket winningTicket)
         {
 
             // this would be better as static variables, 
             //  but, anonymous is cool
-            var prizes = new { Jackpot = 1000000000,
-                FiveWhite = 1000000 };
+            var prizes = new
+            {
+                Jackpot = 1000000000,
+                FiveWhite = 1000000
+            };
 
-            
+
             int winnings = 0;
 
             bool redMatch = RedBall == winningTicket.RedBall;
 
             int whiteMatches = 0;
 
-            foreach( var number in whiteBalls )
+            foreach (var number in whiteBalls)
             {
-                foreach( var winningNumber in winningTicket.whiteBalls )
+                foreach (var winningNumber in winningTicket.whiteBalls)
                 {
-                    if ( number == winningNumber )
+                    if (number == winningNumber)
                     {
                         whiteMatches++;
                     }
                 }
             }
 
-            if ( whiteMatches == 5 && redMatch )
+            if (whiteMatches == 5 && redMatch)
             {
                 winnings = prizes.Jackpot;
             }
@@ -89,8 +111,8 @@ namespace OOPWithForms
             {
                 winnings = 50000;
             }
-            else if ( ( whiteMatches == 4 ) ||
-                    ( whiteMatches == 3 && redMatch ) )
+            else if ((whiteMatches == 4) ||
+                    (whiteMatches == 3 && redMatch))
             {
                 winnings = 100;
             }
@@ -113,7 +135,7 @@ namespace OOPWithForms
 
             var result = "";
 
-            foreach( var number in whiteBalls )
+            foreach (var number in whiteBalls)
             {
                 result += number.ToString() + " ";
             }
@@ -122,6 +144,6 @@ namespace OOPWithForms
 
             return result;
         }
-        
+
     }
 }

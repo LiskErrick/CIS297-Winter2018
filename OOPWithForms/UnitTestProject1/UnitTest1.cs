@@ -174,5 +174,23 @@ namespace UnitTestProject1
             var numbers = new int[] { 5, 5, 5, 5, 5, 5, 5 };
             var myTicket = new PowerBallTicket(numbers);
         }
+
+
+        [TestMethod]
+        public void TestMethod_TestRandomPowerBallTicket()
+        {
+            // Arrange
+            var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
+            var expectedWinnings = 100000000;
+            NotSoRandom random = new NotSoRandom(numbers);
+
+            // Act
+            var myTicket = new PowerBallTicket(random);
+            var winningTicket = new PowerBallTicket(random);
+
+            // Assert
+            Assert.AreEqual(expectedWinnings, myTicket.getWinnings(winningTicket));
+        }
+
     }
 }
