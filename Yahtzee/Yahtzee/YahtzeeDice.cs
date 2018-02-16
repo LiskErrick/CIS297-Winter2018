@@ -20,6 +20,11 @@ namespace Yahtzee
         public bool HoldDie4 { get; set; } = false;
         public bool HoldDie5 { get; set; } = false;
 
+        public YahtzeeDice() : this(new ActuallyRandom())
+        {
+            // empty
+        }
+
         public YahtzeeDice(INumberGenerator numberGenerator)
         {
             _numberGenerator = numberGenerator;
@@ -66,7 +71,7 @@ namespace Yahtzee
                 {
                     if (!shouldHold[index])
                     {
-                        _dice[index] = _numberGenerator.Next(1, 7);
+                        _dice[index] = _numberGenerator.Next(low:1, high:7);
                     }
                 }
             }

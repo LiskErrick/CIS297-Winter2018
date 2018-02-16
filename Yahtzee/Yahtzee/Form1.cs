@@ -18,7 +18,7 @@ namespace Yahtzee
         public Form1()
         {
             InitializeComponent();
-            dice = new YahtzeeDice(new ActuallyRandom());
+            dice = new YahtzeeDice();
             scoreCard = new YahtzeeScoreCard();
         }
 
@@ -109,7 +109,7 @@ namespace Yahtzee
         private void reset()
         {
             rollButton.Enabled = true;
-            dice = new YahtzeeDice(new ActuallyRandom());
+            dice = new YahtzeeDice();
             holdDie1.Checked = false;
             holdDie2.Checked = false;
             holdDie3.Checked = false;
