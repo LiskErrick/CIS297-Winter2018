@@ -40,11 +40,16 @@ namespace Week7
             //}
 
             Deck deck = new Deck();
-
-            while(!deck.IsEmpty())
+            Console.WriteLine($"Number of Ten-King: {deck.Hearts().Count}");
+            foreach( var card in deck.Hearts() )
             {
-                Console.WriteLine(deck.DrawCard());
+                Console.WriteLine(card);
             }
+
+            //while(!deck.IsEmpty())
+            //{
+            //    Console.WriteLine(deck.DrawCard());
+            //}
           
 
             Console.ReadLine();

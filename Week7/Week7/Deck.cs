@@ -17,11 +17,14 @@ namespace Week7
 
             cards = new List<Card>();
 
-            foreach( Suit suit in Enum.GetValues(typeof(Suit) ) )
+            for (int deck = 0; deck < 6; deck++)
             {
-                foreach (Face face in Enum.GetValues(typeof(Face)) )
+                foreach (Suit suit in Enum.GetValues(typeof(Suit)))
                 {
-                    cards.Add(new Card { Face = face, Suit = suit });
+                    foreach (Face face in Enum.GetValues(typeof(Face)))
+                    {
+                        cards.Add(new Card { Face = face, Suit = suit });
+                    }
                 }
             }
         }
@@ -29,6 +32,25 @@ namespace Week7
         public bool IsEmpty()
         {
             return !cards.Any();
+        }
+
+        public List<Card> Hearts()
+        {
+            var results = from card in cards
+                          where (card.Face == Face.Ten
+                          ||card.Face == Face.Jack 
+                          || card.Face == Face.Queen 
+                          || card.Face == Face.King )
+                          //orderby card.Face, card.Suit - this is more interesting if you don't have just hearts
+                          select card;
+
+            // get some string representations out
+            //var results = from card in cards
+            //              let value = (int)card.Face
+            //              where card.Suit == Suit.Hearts
+            //              select $"{card}'s value is: {value + 2}";
+
+            return results.ToList();
         }
 
         public Card DrawCard()
