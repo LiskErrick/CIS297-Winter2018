@@ -21,10 +21,7 @@ namespace Yahtzee
         public int Fives { get; set; } = 0;
         public int Sixes { get; set; } = 0;
 
-        public int UpperBonus()
-        {
-            return Ones + Twos + Threes + Fours + Fives + Sixes >= 63 ? UPPER_BONUS : 0;
-        }
+        public int UpperBonus => Ones + Twos + Threes + Fours + Fives + Sixes >= 63 ? UPPER_BONUS : 0;
 
         public int ThreeOfAKind { get; set; } = 0;
         public int FourOfAKind { get; set; } = 0;
@@ -34,20 +31,11 @@ namespace Yahtzee
         public int Yahtzee { get; set; } = 0;
         public int Chance { get; set; } = 0;
 
-        public int UpperTotal()
-        {
-            return Ones + Twos + Threes + Fours + Fives + Sixes + UpperBonus();
-        }
+        public int UpperTotal => Ones + Twos + Threes + Fours + Fives + Sixes + UpperBonus;
 
-        public int LowerTotal()
-        {
-            return ThreeOfAKind + FourOfAKind + FullHouse + SmallStraight + LargeStraight
-                + Yahtzee + Chance;
-        }
+        public int LowerTotal => ThreeOfAKind + FourOfAKind + FullHouse +
+            SmallStraight + LargeStraight + Yahtzee + Chance;
 
-        public int GrandTotal()
-        {
-            return UpperTotal() + LowerTotal();
-        }
+        public int GrandTotal => UpperTotal + LowerTotal;
     }
 }

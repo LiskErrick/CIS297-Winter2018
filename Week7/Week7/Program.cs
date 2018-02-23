@@ -17,17 +17,33 @@ namespace Week7
             //operation = Multiply;
             //Console.WriteLine(operation(2, 3));
 
-            LotteryPicker numbers = new LotteryPicker();
-            numbers.ToggleConsoleLogging();
-            var numberCount = 0;
-            while (numberCount < 1000)
+            //LotteryPicker numbers = new LotteryPicker();
+            //numbers.ToggleConsoleLogging();
+            //var numberCount = 0;
+            //while (numberCount < 1000)
+            //{
+            //    numbers.pickNumber();
+            //    if ( numberCount == 200 )
+            //    {
+            //        numbers.ToggleFileLogging();
+            //    }
+            //    numberCount++;
+            //}
+
+            //ListsWIthLambdas lists = new ListsWIthLambdas();
+
+            //var numbers = lists.primes();
+
+            //foreach( var number in numbers)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
+            Deck deck = new Deck();
+
+            while(!deck.IsEmpty())
             {
-                numbers.pickNumber();
-                if ( numberCount == 200 )
-                {
-                    numbers.ToggleFileLogging();
-                }
-                numberCount++;
+                Console.WriteLine(deck.DrawCard());
             }
           
 

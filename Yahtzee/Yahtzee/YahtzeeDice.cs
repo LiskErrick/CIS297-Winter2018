@@ -22,6 +22,14 @@ namespace Yahtzee
 
         public event EventHandler DiceChanged;
 
+        public int this[int index]
+        {
+            get
+            {
+                return _dice[index];
+            }
+        }
+
         public YahtzeeDice() : this(new ActuallyRandom())
         {
             // empty
@@ -34,31 +42,6 @@ namespace Yahtzee
             RollCount = 0;
 
             _dice = new List<int>() { 0, 0, 0, 0, 0 };
-        }
-
-        public int getDie1()
-        {
-            return _dice[0];
-        }
-
-        public int getDie2()
-        {
-            return _dice[1];
-        }
-
-        public int getDie3()
-        {
-            return _dice[2];
-        }
-
-        public int getDie4()
-        {
-            return _dice[3];
-        }
-
-        public int getDie5()
-        {
-            return _dice[4];
         }
 
         public void roll()

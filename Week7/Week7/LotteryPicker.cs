@@ -55,14 +55,17 @@ namespace Week7
         public int pickNumber()
         {
             var result = random.Next(1,10);
-            logger?.Invoke($"{DateTime.Now.ToString()} {result.ToString()}");
 
+            
+
+            logger?.Invoke($"{DateTime.UtcNow.ToString("r")} {result.ToString()}");
+            
             return result;
         }
 
         public static void logToConsole(string message)
         {
-            Console.WriteLine(message);
+            Console.WriteLine(message.ToRandomCase());
         }
 
         public static void logToFile(string message)

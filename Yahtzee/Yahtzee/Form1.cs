@@ -25,11 +25,11 @@ namespace Yahtzee
 
         private void diceChangedHandler(object sender, EventArgs e)
         {
-            die1.Text = dice.getDie1().ToString();
-            die2.Text = dice.getDie2().ToString();
-            die3.Text = dice.getDie3().ToString();
-            die4.Text = dice.getDie4().ToString();
-            die5.Text = dice.getDie5().ToString();
+            die1.Text = dice[0].ToString();
+            die2.Text = dice[1].ToString();
+            die3.Text = dice[2].ToString();
+            die4.Text = dice[3].ToString();
+            die5.Text = dice[4].ToString();
         }
 
         private void rollButton_Click(object sender, EventArgs e)
