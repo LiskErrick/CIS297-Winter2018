@@ -20,6 +20,8 @@ namespace Yahtzee
         public bool HoldDie4 { get; set; } = false;
         public bool HoldDie5 { get; set; } = false;
 
+        public event EventHandler DiceChanged;
+
         public YahtzeeDice() : this(new ActuallyRandom())
         {
             // empty
@@ -74,6 +76,14 @@ namespace Yahtzee
                         _dice[index] = _numberGenerator.Next(low:1, high:7);
                     }
                 }
+
+                DiceChanged?.Invoke(this, EventArgs.Empty);
+
+                // same as
+                // if (DiceChanged != null)
+                // {
+                //    DiceChanged(this, EventArgs.Empty);
+                // }
             }
         }
 

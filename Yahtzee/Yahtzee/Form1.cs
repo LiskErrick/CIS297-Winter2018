@@ -19,17 +19,22 @@ namespace Yahtzee
         {
             InitializeComponent();
             dice = new YahtzeeDice();
+            dice.DiceChanged += diceChangedHandler;
             scoreCard = new YahtzeeScoreCard();
         }
 
-        private void rollButton_Click(object sender, EventArgs e)
+        private void diceChangedHandler(object sender, EventArgs e)
         {
-            dice.roll();
             die1.Text = dice.getDie1().ToString();
             die2.Text = dice.getDie2().ToString();
             die3.Text = dice.getDie3().ToString();
             die4.Text = dice.getDie4().ToString();
             die5.Text = dice.getDie5().ToString();
+        }
+
+        private void rollButton_Click(object sender, EventArgs e)
+        {
+            dice.roll();
 
             var possibleScores = dice.getPossibleScores();
 
@@ -56,6 +61,34 @@ namespace Yahtzee
             if (button6.Enabled)
             {
                 sixesScoreLabel.Text = possibleScores.Sixes.ToString();
+            }
+            if(scoreThreeOfAKind.Enabled)
+            {
+                threeOfAKindLabel.Text = possibleScores.ThreeOfAKind.ToString();
+            }
+            if (scoreFourOfAKind.Enabled)
+            {
+                fourOfAKindLabel.Text = possibleScores.FourOfAKind.ToString();
+            }
+            if (scoreFullHouse.Enabled)
+            {
+                fullHouseLabel.Text = possibleScores.FullHouse.ToString();
+            }
+            if (scoreSmallStraight.Enabled)
+            {
+                smallStraightLabel.Text = possibleScores.SmallStraight.ToString();
+            }
+            if (scoreLargeStraight.Enabled)
+            {
+                largeStraightLabel.Text = possibleScores.LargeStraight.ToString();
+            }
+            if (scoreYahtzee.Enabled)
+            {
+                yahtzeeLabel.Text = possibleScores.Yahtzee.ToString();
+            }
+            if (scoreChance.Enabled)
+            {
+                chanceLabel.Text = possibleScores.Chance.ToString();
             }
 
             if (dice.RollCount == 3)
@@ -109,12 +142,20 @@ namespace Yahtzee
         private void reset()
         {
             rollButton.Enabled = true;
+            dice.DiceChanged -= diceChangedHandler;
             dice = new YahtzeeDice();
+            dice.DiceChanged += diceChangedHandler;
             holdDie1.Checked = false;
             holdDie2.Checked = false;
             holdDie3.Checked = false;
             holdDie4.Checked = false;
             holdDie5.Checked = false;
+
+            die1.Text = string.Empty;
+            die2.Text = string.Empty;
+            die3.Text = string.Empty;
+            die4.Text = string.Empty;
+            die5.Text = string.Empty;
 
             upperBonusLabel.Text = $"Upper Bonus: {scoreCard.UpperBonus()}";
         }
@@ -142,6 +183,55 @@ namespace Yahtzee
         private void holdDie5_CheckedChanged(object sender, EventArgs e)
         {
             dice.HoldDie5 = holdDie5.Checked;
+        }
+
+        private void scoreThreeOfAKind_Click(object sender, EventArgs e)
+        {
+            scoreCard.ThreeOfAKind = dice.getPossibleScores().ThreeOfAKind;
+            scoreThreeOfAKind.Enabled = false;
+            reset();
+        }
+
+        private void scoreFourOfAKind_Click(object sender, EventArgs e)
+        {
+            scoreCard.FourOfAKind = dice.getPossibleScores().FourOfAKind;
+            scoreFourOfAKind.Enabled = false;
+            reset();
+        }
+
+        private void scoreFullHouse_Click(object sender, EventArgs e)
+        {
+            scoreCard.FullHouse = dice.getPossibleScores().FullHouse;
+            scoreFullHouse.Enabled = false;
+            reset();
+        }
+
+        private void scoreSmallStraight_Click(object sender, EventArgs e)
+        {
+            scoreCard.SmallStraight = dice.getPossibleScores().SmallStraight;
+            scoreSmallStraight.Enabled = false;
+            reset();
+        }
+
+        private void scoreLargeStraight_Click(object sender, EventArgs e)
+        {
+            scoreCard.LargeStraight = dice.getPossibleScores().LargeStraight;
+            scoreLargeStraight.Enabled = false;
+            reset();
+        }
+
+        private void scoreYahtzee_Click(object sender, EventArgs e)
+        {
+            scoreCard.Yahtzee = dice.getPossibleScores().Yahtzee;
+            scoreYahtzee.Enabled = false;
+            reset();
+        }
+
+        private void scoreChance_Click(object sender, EventArgs e)
+        {
+            scoreCard.Chance = dice.getPossibleScores().Chance;
+            scoreChance.Enabled = false;
+            reset();
         }
     }
 }
