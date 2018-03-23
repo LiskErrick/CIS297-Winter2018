@@ -18,8 +18,17 @@ namespace Registration
             InitializeComponent();
             database = new RegistrationDatabase();
             UpdateCourseListLabel();
+            UpdateComboBox();
 
+        }
 
+        private void UpdateComboBox()
+        {
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = database.Courses.Local;
+            comboBox1.DisplayMember = "DisplayName";
+            comboBox1.ValueMember = "Id";
+            comboBox1.Refresh();
         }
 
         private void UpdateCourseListLabel()
@@ -50,10 +59,37 @@ namespace Registration
             catch ( Exception ex )
             {
                 MessageBox.Show(ex.ToString());
+                database.Dispose();
+                database = new RegistrationDatabase();
             }
 
             UpdateCourseListLabel();
-            
+            UpdateComboBox();
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var course = comboBox1.SelectedItem as Course;
+
+            // ?. is basically the same as
+            if (course != null)
+            {
+                course.Id.ToString();
+            }
+            else
+            {
+                comboBoxLabel.Text = null;
+            }
+            // 
+
+            comboBoxLabel.Text = course?.Id.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var sectionsForm = new Sections(database);
+            sectionsForm.Show();
         }
     }
 }
