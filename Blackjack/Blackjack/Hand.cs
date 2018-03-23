@@ -11,7 +11,9 @@ namespace Blackjack
         public List<Card> Cards { get; set; }
         public Player Player { get; private set; }
         public int Bet { get; set; }
-        public bool Busted { get; set; }
+        public bool Busted => GetPointValue() > 21;
+
+        private Deck _deck;
 
         
 
@@ -19,12 +21,17 @@ namespace Blackjack
         {
             Player = player;
             Bet = bet;
-            Busted = false;
             Cards = new List<Card>
             {
                 deck.DrawCard(),
                 deck.DrawCard()
             };
+            _deck = deck;
+        }
+
+        public void Hit()
+        {
+            Cards.Add(_deck.DrawCard());
         }
 
         public int GetPointValue()
@@ -34,8 +41,8 @@ namespace Blackjack
             {
                 points += card.Points();
             }
-            // TODO - Fix if multiple aces
-            if ( points > 21 && Cards.Any(c => c.Face == Face.Ace ))
+  
+            for ( int aces = 0; points > 21 && aces < Cards.Count(c => c.Face == Face.Ace); aces++ )
             {
                 points -= 10;
             }

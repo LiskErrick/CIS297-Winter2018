@@ -20,6 +20,7 @@ namespace Blackjack
         public void Bet(int bet, Deck deck)
         {
             Hands.Add(new Hand(deck, this, bet));
+            Money -= bet;
         }
     }
 }

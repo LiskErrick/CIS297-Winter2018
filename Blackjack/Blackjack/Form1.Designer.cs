@@ -30,6 +30,8 @@
         {
             this.dealerLabel = new System.Windows.Forms.Label();
             this.playerLabel = new System.Windows.Forms.Label();
+            this.playerHit = new System.Windows.Forms.Button();
+            this.playerStandButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dealerLabel
@@ -48,11 +50,32 @@
             this.playerLabel.Size = new System.Drawing.Size(0, 25);
             this.playerLabel.TabIndex = 1;
             // 
+            // playerHit
+            // 
+            this.playerHit.Location = new System.Drawing.Point(79, 543);
+            this.playerHit.Name = "playerHit";
+            this.playerHit.Size = new System.Drawing.Size(175, 81);
+            this.playerHit.TabIndex = 2;
+            this.playerHit.Text = "Hit";
+            this.playerHit.UseVisualStyleBackColor = true;
+            // 
+            // playerStandButton
+            // 
+            this.playerStandButton.Location = new System.Drawing.Point(287, 543);
+            this.playerStandButton.Name = "playerStandButton";
+            this.playerStandButton.Size = new System.Drawing.Size(169, 81);
+            this.playerStandButton.TabIndex = 3;
+            this.playerStandButton.Text = "Stand";
+            this.playerStandButton.UseVisualStyleBackColor = true;
+            this.playerStandButton.Click += new System.EventHandler(this.playerStandButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1648, 842);
+            this.Controls.Add(this.playerStandButton);
+            this.Controls.Add(this.playerHit);
             this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.dealerLabel);
             this.Name = "Form1";
@@ -66,6 +89,8 @@
 
         private System.Windows.Forms.Label dealerLabel;
         private System.Windows.Forms.Label playerLabel;
+        private System.Windows.Forms.Button playerHit;
+        private System.Windows.Forms.Button playerStandButton;
     }
 }
 
