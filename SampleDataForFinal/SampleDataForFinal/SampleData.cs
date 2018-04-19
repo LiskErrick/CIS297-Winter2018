@@ -18,6 +18,8 @@ namespace SampleDataForFinal
             }
             Customer Eric = new Customer { Name = "Eric", Balance = 123.0 };
             Hotel.Rooms[0].Occupant = Eric;
+
+            // Add more customers here
         }
     }
 
